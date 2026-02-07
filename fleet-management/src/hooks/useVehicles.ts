@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { Vehicle, PaginationParams } from '../types/mbta';
 import { getVehicles } from '../api/vehicles';
+import { FilterKeys, FilterDefaults } from '../constants/filters';
 
 export const useVehicles = () => {
     const [vehicles, setVehicles] = useState<Vehicle[]>([]);
@@ -25,16 +26,20 @@ export const useVehicles = () => {
             const currentLimit = params?.limit || pagination.limit;
             const currentOffset = params?.offset ?? ((pagination.page - 1) * currentLimit);
 
+
+
+            // ... (inside fetchVehicles)
             const filterParams: Record<string, string> = {
-                'filter[route_type]': '3'
+                [FilterKeys.ROUTE_TYPE]: FilterDefaults.ROUTE_TYPE
             };
 
             if (filters.routes.length > 0) {
-                filterParams['filter[route]'] = filters.routes.join(',');
+                filterParams[FilterKeys.ROUTE] = filters.routes.join(',');
             }
             if (filters.trips.length > 0) {
-                filterParams['filter[trip]'] = filters.trips.join(',');
+                filterParams[FilterKeys.TRIP] = filters.trips.join(',');
             }
+            // ...
 
             const data = await getVehicles({
                 ...params,
