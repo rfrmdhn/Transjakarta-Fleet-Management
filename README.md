@@ -4,7 +4,7 @@ A comprehensive fleet management dashboard for monitoring and tracking Transjaka
 
 > **Disclaimer**: This repository is submitted by **Rafi Ramadhan Athallah** as a technical test for the **Senior Engineer - Frontend** position at **PT. Transportasi Jakarta (Transjakarta)**. All code and documentation within this repository are created for this specific purpose.
 
-## 🚀 Features
+## Features
 
 - **Real-time Vehicle Tracking**: Interactive map visualization using Leaflet.
 - **Fleet Monitoring**: Detailed vehicle information and status updates.
@@ -12,7 +12,7 @@ A comprehensive fleet management dashboard for monitoring and tracking Transjaka
 - **Responsive Design**: Fully responsive interface optimized for desktop and tablet users.
 - **Modern UI/UX**: Clean and intuitive interface built with Tailwind CSS.
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Core**: [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
 - **Build Tool**: [Vite](https://vitejs.dev/)
@@ -23,13 +23,13 @@ A comprehensive fleet management dashboard for monitoring and tracking Transjaka
 - **Testing**: [Vitest](https://vitest.dev/) + React Testing Library
 - **Linting & Formatting**: ESLint + Prettier
 
-## 📋 Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have the following installed:
 - **Node.js** (v18.0.0 or higher recommended)
 - **npm** (v9.0.0 or higher) or **pnpm** / **yarn**
 
-## 🏁 Getting Started
+## Getting Started
 
 Follow these steps to set up and run the project locally.
 
@@ -76,7 +76,7 @@ npm run dev
 
 The application will be available at `http://localhost:5173` (or another port if 5173 is busy).
 
-## 📦 Building for Production
+## Building for Production
 
 To create a production-ready build:
 
@@ -90,7 +90,7 @@ The built files will be generated in the `dist` directory. You can preview the p
 npm run preview
 ```
 
-## 🧪 Running Tests
+## Running Tests
 
 Run the test suite to ensure everything is working as expected:
 
@@ -98,7 +98,7 @@ Run the test suite to ensure everything is working as expected:
 npm run test
 ```
 
-## 🔍 Code Quality
+## Code Quality
 
 Run the linter to check for code quality issues:
 
@@ -106,7 +106,7 @@ Run the linter to check for code quality issues:
 npm run lint
 ```
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 ```
