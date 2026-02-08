@@ -37,10 +37,10 @@ Follow these steps to set up and run the project locally.
 
 ```bash
 git clone https://github.com/rfrmdhn/Transjakarta-Fleet-Management.git
-cd Transjakarta-Fleet-Management/fleet-management
+cd Transjakarta-Fleet-Management
 ```
 
-> **Note**: If you cloned the root repository, navigate into the `fleet-management` directory where the frontend application resides.
+> **Note**: The project is located in the root directory.
 
 ### 2. Install Dependencies
 
@@ -54,7 +54,7 @@ npm install
 
 The application requires environment variables to function correctly (e.g., API URLs).
 
-1. Create a `.env` file in the root of the `fleet-management` directory based on the example file:
+1. Create a `.env` file in the root directory based on the example file:
 
 ```bash
 cp .env.example .env
@@ -109,7 +109,8 @@ npm run lint
 ## 📂 Project Structure
 
 ```
-fleet-management/
+```
+Transjakarta-Fleet-Management/
 ├── public/              # Static assets
 ├── src/
 │   ├── assets/          # Images, fonts, etc.
