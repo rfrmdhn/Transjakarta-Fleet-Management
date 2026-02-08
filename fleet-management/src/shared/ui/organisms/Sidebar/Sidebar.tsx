@@ -28,11 +28,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                 "lg:translate-x-0 lg:sticky lg:top-[65px] lg:h-[calc(100vh-65px)] lg:flex"
             )}>
                 <div className="flex items-center gap-3 px-3 py-2 mb-2">
-                    <img src="/logo-transjakarta.webp" alt="Transjakarta" className="h-8 w-auto" />
-                    <div className="flex flex-col">
-                        <h1 className="text-slate-900 dark:text-white text-sm font-bold leading-normal">Fleet Admin</h1>
-                        <p className="text-slate-500 dark:text-slate-400 text-[10px] font-normal leading-normal uppercase tracking-wider">Operational</p>
-                    </div>
+                    {/* <img src="/logo-transjakarta.webp" alt="Transjakarta" className="h-8 w-auto" /> */}
+
                     {/* Close button for mobile */}
                     <button
                         onClick={onClose}
