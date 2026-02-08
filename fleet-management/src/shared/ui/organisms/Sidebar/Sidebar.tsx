@@ -13,7 +13,7 @@ export const Sidebar = () => {
                 </div>
             </div>
             <div className="flex flex-col gap-1">
-                <NavItem icon="dashboard" label="Overview" to="#" />
+
                 <NavItem icon="directions_bus" label="Vehicles" to="/" active />
                 {/* <NavItem icon="person" label="Drivers" to="#" /> */}
                 {/* <NavItem icon="build" label="Maintenance" to="#" /> */}
