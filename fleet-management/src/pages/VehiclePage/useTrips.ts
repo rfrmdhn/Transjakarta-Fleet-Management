@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import type { Trip } from '../types/mbta';
-import { getTrips } from '../api/trips';
+import type { Trip } from '../../types/mbta';
+import { getTrips } from '../../api/trips';
 
 export const useTrips = () => {
     const [trips, setTrips] = useState<Trip[]>([]);

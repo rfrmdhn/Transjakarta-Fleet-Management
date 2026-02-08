@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import type { Route } from '../types/mbta';
-import { getRoutes } from '../api/routes';
+import type { Route } from '../../types/mbta';
+import { getRoutes } from '../../api/routes';
 
 export const useRoutes = () => {
     const [routes, setRoutes] = useState<Route[]>([]);

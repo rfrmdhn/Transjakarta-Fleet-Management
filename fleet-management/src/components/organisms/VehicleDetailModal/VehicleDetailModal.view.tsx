@@ -1,22 +1,16 @@
 import React from 'react';
-import type { Vehicle } from '../../types/mbta';
-import { useVehicleDetails } from '../../hooks/useVehicleDetails';
-import { VehicleHeader } from '../molecules/VehicleHeader';
-import { VehicleMap } from '../molecules/VehicleMap';
-import { VehicleTelemetry } from '../molecules/VehicleTelemetry';
-import { VehicleAssignment } from '../molecules/VehicleAssignment';
+import { VehicleHeader } from '../../molecules/VehicleHeader';
+import { VehicleMap } from '../../molecules/VehicleMap';
+import { VehicleTelemetry } from '../../molecules/VehicleTelemetry';
+import { VehicleAssignment } from '../../molecules/VehicleAssignment';
+import type { useVehicleDetailModal } from './useVehicleDetailModal';
 
-interface VehicleDetailModalProps {
-    vehicle: Vehicle;
-    onClose: () => void;
+interface VehicleDetailModalViewProps {
+    logic: ReturnType<typeof useVehicleDetailModal>;
 }
 
-export const VehicleDetailModal: React.FC<VehicleDetailModalProps> = ({ vehicle: initialVehicle, onClose }) => {
-    // Use the hook to fetch full details including shape
-    const { vehicle, route, trip, shapePath } = useVehicleDetails(initialVehicle.id);
-
-    // Fallback to initial vehicle data while loading full details
-    const displayVehicle = vehicle || initialVehicle;
+export const VehicleDetailModalView: React.FC<VehicleDetailModalViewProps> = ({ logic }) => {
+    const { displayVehicle, route, trip, shapePath, onClose } = logic;
 
     if (!displayVehicle) return null;
 

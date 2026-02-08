@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import type { Vehicle, Route, Trip } from '../types/mbta';
-import { getVehicleById } from '../api/vehicles';
-import { getShape } from '../api/shapes';
-import { decodePolyline } from '../utils/polyline';
+import type { Vehicle, Route, Trip } from '../../types/mbta';
+import { getVehicleById } from '../../api/vehicles';
+import { getShape } from '../../api/shapes';
+import { decodePolyline } from '../../utils/polyline';
 
 export const useVehicleDetails = (vehicleId: string | undefined) => {
     const [vehicle, setVehicle] = useState<Vehicle | null>(null);

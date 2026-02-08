@@ -1,18 +1,31 @@
-import React, { useState } from 'react';
-import { DashboardLayout } from '../components/templates/DashboardLayout';
-import { FilterSection } from '../components/organisms/FilterSection';
-import { VehicleGrid } from '../components/organisms/VehicleGrid';
-import { Pagination } from '../components/molecules/Pagination';
-import { VehicleDetailModal } from '../components/organisms/VehicleDetailModal';
-import { useVehicles } from '../hooks/useVehicles';
-import type { Vehicle } from '../types/mbta';
+import React from 'react';
+import { DashboardLayout } from '../../components/templates/DashboardLayout';
+import { FilterSection } from '../../components/organisms/FilterSection';
+import { VehicleGrid } from '../../components/organisms/VehicleGrid';
+import { Pagination } from '../../components/molecules/Pagination';
+import { VehicleDetailModal } from '../../components/organisms/VehicleDetailModal';
+import type { useVehiclePage } from './useVehiclePage';
 
-export const VehiclePage: React.FC = () => {
-    const { vehicles, loading, error, pagination, setPage, setLimit, refresh, filters, setFilters } = useVehicles();
-    const [selectedVehicle, setSelectedVehicle] = useState<Vehicle | null>(null);
+interface VehiclePageViewProps {
+    logic: ReturnType<typeof useVehiclePage>;
+}
 
-    const activeCount = vehicles.filter(v => v.attributes.current_status !== 'STOPPED_AT').length;
-    const stoppedCount = vehicles.length - activeCount;
+export const VehiclePageView: React.FC<VehiclePageViewProps> = ({ logic }) => {
+    const {
+        vehicles,
+        loading,
+        error,
+        pagination,
+        setPage,
+        setLimit,
+        refresh,
+        filters,
+        setFilters,
+        selectedVehicle,
+        setSelectedVehicle,
+        activeCount,
+        stoppedCount
+    } = logic;
 
     return (
         <DashboardLayout>

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
-import type { Vehicle, PaginationParams } from '../types/mbta';
-import { getVehicles } from '../api/vehicles';
-import { FilterKeys, FilterDefaults } from '../constants/filters';
+import type { Vehicle, PaginationParams } from '../../types/mbta';
+import { getVehicles } from '../../api/vehicles';
+import { FilterKeys, FilterDefaults } from '../../constants/filters';
 
 export const useVehicles = () => {
     const [vehicles, setVehicles] = useState<Vehicle[]>([]);
