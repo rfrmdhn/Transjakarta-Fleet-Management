@@ -1,9 +1,19 @@
 
 
-export const Header = () => {
+interface HeaderProps {
+    onMenuClick?: () => void;
+}
+
+export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
     return (
         <header className="sticky top-0 z-30 flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-card-light/80 dark:bg-card-dark/80 backdrop-blur-md px-6 py-3 shadow-sm">
             <div className="flex items-center gap-3 lg:hidden">
+                <button
+                    onClick={onMenuClick}
+                    className="p-2 -ml-2 text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-white transition-colors rounded-lg active:bg-slate-100 dark:active:bg-slate-800"
+                >
+                    <span className="material-symbols-outlined">menu</span>
+                </button>
                 <img src="/logo-transjakarta.webp" alt="Transjakarta" className="h-8 w-auto" />
                 <div>
                     <h1 className="text-lg font-bold leading-tight tracking-tight text-slate-900 dark:text-white">Fleet Management</h1>
