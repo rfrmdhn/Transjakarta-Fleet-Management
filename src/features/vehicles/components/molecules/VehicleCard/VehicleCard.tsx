@@ -3,19 +3,21 @@ import React from 'react';
 import type { Vehicle } from '../../../../../types/mbta';
 import { Badge, type BadgeVariant } from '../../../../../shared/ui/atoms/Badge';
 
+import { VehicleStatus, VehicleStatusLabels, type VehicleStatusType } from '../../../constants/vehicle';
+
 interface VehicleCardProps {
     vehicle: Vehicle;
     onClick?: (vehicle: Vehicle) => void;
 }
 
 const statusVariants: Record<string, BadgeVariant> = {
-    'IN_TRANSIT_TO': 'success',
-    'STOPPED_AT': 'danger',
-    'INCOMING_AT': 'warning',
+    [VehicleStatus.IN_TRANSIT_TO]: 'success',
+    [VehicleStatus.STOPPED_AT]: 'danger',
+    [VehicleStatus.INCOMING_AT]: 'warning',
 };
 
 export const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onClick }) => {
-    const isStopped = vehicle.attributes.current_status === 'STOPPED_AT';
+    const isStopped = vehicle.attributes.current_status === VehicleStatus.STOPPED_AT;
 
     return (
         <div
@@ -36,7 +38,7 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onClick }) =>
                         variant={statusVariants[vehicle.attributes.current_status] || 'neutral'}
                         withDot
                     >
-                        {vehicle.attributes.current_status.replace(/_/g, ' ')}
+                        {VehicleStatusLabels[vehicle.attributes.current_status as VehicleStatusType] || vehicle.attributes.current_status.replace(/_/g, ' ')}
                     </Badge>
                 </div>
 

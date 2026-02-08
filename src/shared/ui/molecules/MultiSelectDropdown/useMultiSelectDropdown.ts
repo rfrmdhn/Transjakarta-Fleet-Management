@@ -2,7 +2,7 @@ import { useState, useRef, useCallback, useEffect } from 'react';
 import type { ApiResponse } from '../../../../types/mbta';
 
 interface UseMultiSelectDropdownProps<T> {
-    fetchData: (params?: any) => Promise<ApiResponse<T[]>>;
+    fetchData: (params?: Record<string, unknown>) => Promise<ApiResponse<T[]>>;
     value: string[];
     onChange: (value: string[]) => void;
 }
