@@ -62,10 +62,7 @@ cp .env.example .env
 
 ```env
 VITE_API_URL=https://api-v3.mbta.com
-VITE_MBTA_API_KEY=your_api_key_here
 ```
-
-> **Important**: You may need an API key from the [MBTA Developer Portal](https://api-v3.mbta.com/) (or the relevant Transjakarta API provider if changed) to fetch live data. If using the default MBTA v3 API for development, get a key to avoid rate limits.
 
 ### 4. Run the Development Server
 
