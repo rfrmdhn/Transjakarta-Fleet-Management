@@ -6,6 +6,7 @@ export const getVehicles = async (params: PaginationParams = {}): Promise<ApiRes
     if (params.limit) queryParams.append('page[limit]', params.limit.toString());
     if (params.offset) queryParams.append('page[offset]', params.offset.toString());
     if (params['filter[route]']) queryParams.append('filter[route]', params['filter[route]']);
+    if (params['filter[trip]']) queryParams.append('filter[trip]', params['filter[trip]']);
     if (params['filter[route_type]']) queryParams.append('filter[route_type]', params['filter[route_type]']);
     if (params.sort) queryParams.append('sort', params.sort);
 

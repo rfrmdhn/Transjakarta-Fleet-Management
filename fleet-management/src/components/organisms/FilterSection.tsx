@@ -15,7 +15,7 @@ interface FilterSectionProps {
 export const FilterSection: React.FC<FilterSectionProps> = ({ filters, onFilterChange }) => {
 
     const handleRouteChange = (selectedRoutes: string[]) => {
-        onFilterChange({ ...filters, routes: selectedRoutes });
+        onFilterChange({ routes: selectedRoutes, trips: [] });
     };
 
     const handleTripChange = (selectedTrips: string[]) => {
@@ -57,8 +57,12 @@ export const FilterSection: React.FC<FilterSectionProps> = ({ filters, onFilterC
                     {/* Trip Filter */}
                     <div className="max-w-[300px] w-full">
                         <MultiSelectDropdown<Trip>
+                            key={filters.routes.join(',')}
                             label="Trip"
-                            fetchData={getTrips}
+                            fetchData={(params) => {
+                                if (filters.routes.length === 0) return Promise.resolve({ data: [] });
+                                return getTrips({ ...params, 'filter[route]': filters.routes.join(',') });
+                            }}
                             value={filters.trips}
                             onChange={handleTripChange}
                             renderItem={(trip) => (
@@ -72,7 +76,7 @@ export const FilterSection: React.FC<FilterSectionProps> = ({ filters, onFilterC
                                 </div>
                             )}
                             itemKey={(trip) => trip.id}
-                            placeholder="All Trips"
+                            placeholder={filters.routes.length === 0 ? "Select Route first" : "All Trips"}
                         />
                     </div>
                 </div>

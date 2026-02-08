@@ -39,8 +39,8 @@ export const MultiSelectDropdown = <T,>({
         try {
             const currentOffset = reset ? 0 : offset;
             const response = await fetchData({
-                'page[offset]': currentOffset,
-                'page[limit]': 10,
+                offset: currentOffset,
+                limit: 10,
                 // Add rudimentary search if API supports it or filter locally? 
                 // MBTA API filtering is complex, let's just fetch for now or filter locally if needed.
                 // For this component we assume infinite scrolling list.
