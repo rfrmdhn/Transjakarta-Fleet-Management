@@ -14,10 +14,7 @@ export const getVehicles = async (params: PaginationParams = {}): Promise<ApiRes
     return response.data;
 };
 
-// Update return type to include 'included' logic if we want to parse it, 
-// but for now MBTA API returns 'included' array side-by-side with 'data'.
-// We might need a more complex type or just let Axios return 'any' for the full response to parse manually,
-// OR update ApiResponse to support 'included'.
+
 
 export const getVehicleById = async (id: string): Promise<ApiResponse<Vehicle> & { included?: (Route | Trip)[] }> => {
     const response = await apiClient.get<ApiResponse<Vehicle> & { included?: (Route | Trip)[] }>(`/vehicles/${id}?include=route,trip`);
