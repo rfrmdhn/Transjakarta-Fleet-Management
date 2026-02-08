@@ -30,6 +30,4 @@ export const useToast = () => {
     return { toasts, addToast, removeToast };
 };
 
-// Simple event bus for global toast access if needed without context
-// (keeping it simple for now, can be expanded to Context)
-// For this strict implementation, we'll expose a hook to be used in layouts/pages.
+

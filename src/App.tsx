@@ -4,12 +4,7 @@ import { ToastContainer } from './shared/ui/molecules/ToastContainer';
 import { useToast } from './shared/hooks/useToast';
 
 function App() {
-  const { toasts, removeToast /*, addToast */ } = useToast();
-  // Note: For a real app, addToast should be provided via Context.
-  // Here we are just setting up the container. 
-  // To make it globally usable without Context in this simple scope, 
-  // we would need to lift state or use a store signal.
-  // For this tech test, we will place the container here.
+  const { toasts, removeToast } = useToast();
 
   return (
     <Router>

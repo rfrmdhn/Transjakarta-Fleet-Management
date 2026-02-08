@@ -9,7 +9,7 @@ export interface ApiResponse<T> {
 }
 
 export interface MbtaAttributes {
-    // Common attributes can go here
+
 }
 
 export interface Vehicle {
