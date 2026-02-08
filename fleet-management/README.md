@@ -2,6 +2,8 @@
 
 A comprehensive fleet management dashboard for monitoring and tracking Transjakarta vehicles in real-time. Built with modern web technologies for performance and scalability.
 
+> **Disclaimer**: This repository is submitted by **Rafi Ramadhan Athallah** as a technical test for the **Senior Engineer - Frontend** position at **PT. Transportasi Jakarta (Transjakarta)**. All code and documentation within this repository are created for this specific purpose.
+
 ## 🚀 Features
 
 - **Real-time Vehicle Tracking**: Interactive map visualization using Leaflet.
