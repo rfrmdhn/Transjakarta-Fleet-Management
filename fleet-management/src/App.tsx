@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { VehiclePage } from './pages/VehiclePage';
+import { VehiclePage } from './features/vehicles/pages/VehiclePage';
 
 function App() {
   return (

@@ -1,0 +1,1 @@
+export { VehicleAssignment } from './VehicleAssignment';
