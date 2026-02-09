@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { MapContainer as LeafletMap, TileLayer } from 'react-leaflet';
+import { MapContainer as LeafletMap, TileLayer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import type { Vehicle } from '../../../../types/mbta';
 import { VehicleMarker } from '../molecules/VehicleMarker';
@@ -12,6 +12,25 @@ interface MapContainerProps {
     selectedVehicleId: string | null;
     onVehicleSelect: (vehicle: Vehicle) => void;
 }
+
+// Helper component to handle map centering
+const RecenterMap = ({ selectedVehicleId, vehicles }: { selectedVehicleId: string | null, vehicles: Vehicle[] }) => {
+    const map = useMap();
+
+    useEffect(() => {
+        if (selectedVehicleId) {
+            const vehicle = vehicles.find(v => v.id === selectedVehicleId);
+            if (vehicle) {
+                map.flyTo([vehicle.attributes.latitude, vehicle.attributes.longitude], 15, {
+                    animate: true,
+                    duration: 1.5
+                });
+            }
+        }
+    }, [selectedVehicleId, vehicles, map]);
+
+    return null;
+};
 
 export const MapContainer: React.FC<MapContainerProps> = ({ vehicles, selectedVehicleId, onVehicleSelect }) => {
     // Default center (Jakarta coordinates roughly, but MBTA is Boston based... using Boston for data accuracy testing first, or if "Transjakarta" imply just name but using MBTA API?)
@@ -54,6 +73,8 @@ export const MapContainer: React.FC<MapContainerProps> = ({ vehicles, selectedVe
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
+
+            <RecenterMap selectedVehicleId={selectedVehicleId} vehicles={vehicles} />
 
             {vehicles.map(vehicle => (
                 <VehicleMarker
