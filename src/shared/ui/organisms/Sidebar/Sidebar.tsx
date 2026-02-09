@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 interface SidebarProps {
     isOpen?: boolean;
@@ -8,6 +8,8 @@ interface SidebarProps {
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
+    const location = useLocation();
+
     return (
         <>
             {/* Mobile Backdrop */}
@@ -39,7 +41,20 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                     </button>
                 </div>
                 <div className="flex flex-col gap-1">
-                    <NavItem icon="directions_bus" label="Vehicles" to="/" active onClick={onClose} />
+                    <NavItem
+                        icon="directions_bus"
+                        label="Vehicles"
+                        to="/"
+                        active={location.pathname === '/' || location.pathname.startsWith('/vehicles')}
+                        onClick={onClose}
+                    />
+                    <NavItem
+                        icon="map"
+                        label="Live Map"
+                        to="/map"
+                        active={location.pathname === '/map'}
+                        onClick={onClose}
+                    />
                     {/* <NavItem icon="person" label="Drivers" to="#" /> */}
                     {/* <NavItem icon="build" label="Maintenance" to="#" /> */}
                     {/* <NavItem icon="warning" label="Alerts" to="#" /> */}
